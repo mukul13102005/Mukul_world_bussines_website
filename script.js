@@ -1,4 +1,4 @@
-// Navbar Toggle for Mobile
+  // Navbar Toggle for Mobile
 function toggleHeader() {
     let navMenu = document.getElementById("nav-menu");
     if (navMenu.style.display === "flex") {
