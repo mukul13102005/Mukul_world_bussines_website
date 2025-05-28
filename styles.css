@@ -1,138 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dark Mode & Music Toggle</title>
+// Get elements
+const musicToggle = document.getElementById('music-toggle');
+const themeToggle = document.getElementById('theme-toggle');
+const music = document.getElementById('background-music');
+const body = document.body;
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+// Load saved preferences on page load
+window.addEventListener('DOMContentLoaded', () => {
+  // Load theme preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+    themeToggle.textContent = '☀️'; // Sun icon when dark mode is on
+  } else {
+    themeToggle.textContent = '🌙'; // Moon icon for light mode
+  }
 
-  <!-- Your CSS -->
-  <style>
-    /* Paste the full CSS code I gave you here */
-  </style>
-</head>
-<body>
-  <header>
-    <h1>My Website</h1>
+  // Load music preference
+  const musicPlaying = localStorage.getItem('musicPlaying') === 'true';
+  if (musicPlaying) {
+    music.play();
+    musicToggle.textContent = '🔊'; // Sound on icon
+  } else {
+    musicToggle.textContent = '🎵'; // Sound off icon
+  }
+});
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#why-us">Why Us</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#contact">Contact</a>
-    </nav>
+// Music toggle button click handler
+musicToggle.addEventListener('click', () => {
+  if (music.paused) {
+    music.play();
+    musicToggle.textContent = '🔊'; // Change to sound on icon
+    localStorage.setItem('musicPlaying', 'true');
+  } else {
+    music.pause();
+    musicToggle.textContent = '🎵'; // Change to sound off icon
+    localStorage.setItem('musicPlaying', 'false');
+  }
+});
 
-    <!-- Music Toggle Button -->
-    <button id="music-toggle" aria-label="Toggle Music" title="Play/Pause Music">
-      🎵
-    </button>
+// Theme toggle button click handler
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
 
-    <!-- Dark/Light Mode Toggle Button -->
-    <button id="theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Dark/Light Mode">
-      🌙
-    </button>
-  </header>
-
-  <main>
-    <section id="home">
-      <h2>Welcome to Our Website</h2>
-      <p>Explore the dark mode and music toggle feature.</p>
-    </section>
-
-    <section id="why-us">
-      <h2>Why Choose Us?</h2>
-      <div class="features">
-        <div class="feature">Feature 1</div>
-        <div class="feature">Feature 2</div>
-        <div class="feature">Feature 3</div>
-      </div>
-    </section>
-
-    <section id="pricing">
-      <h2>Pricing</h2>
-      <table class="pricing-table">
-        <thead>
-          <tr><th>Plan</th><th>Price</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Basic</td><td>$10</td></tr>
-          <tr><td>Pro</td><td>$20</td></tr>
-          <tr><td>Enterprise</td><td>$50</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <p>Email: info@example.com</p>
-    </section>
-  </main>
-
-  <!-- Audio element for music -->
-  <audio id="background-music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_8ed6e5ce2a.mp3?filename=lofi-study-12527.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
-
-  <script>
-    // Get buttons and audio element
-    const musicToggle = document.getElementById('music-toggle');
-    const themeToggle = document.getElementById('theme-toggle');
-    const music = document.getElementById('background-music');
-    const body = document.body;
-
-    // Music toggle functionality
-    musicToggle.addEventListener('click', () => {
-      if (music.paused) {
-        music.play();
-        musicToggle.textContent = '🔊'; // Change icon when playing
-      } else {
-        music.pause();
-        musicToggle.textContent = '🎵'; // Icon when paused
-      }
-    });
-
-    // Theme toggle functionality
-    themeToggle.addEventListener('click', () => {
-      body.classList.toggle('dark-mode');
-
-      // Change icon based on mode
-      if (body.classList.contains('dark-mode')) {
-        themeToggle.textContent = '☀️'; // Sun icon for light mode
-      } else {
-        themeToggle.textContent = '🌙'; // Moon icon for dark mode
-      }
-    });
-
-    // Optional: Remember theme preference in localStorage
-    window.addEventListener('DOMContentLoaded', () => {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
-        themeToggle.textContent = '☀️';
-      }
-      const musicPlaying = localStorage.getItem('musicPlaying') === 'true';
-      if (musicPlaying) {
-        music.play();
-        musicToggle.textContent = '🔊';
-      }
-    });
-
-    // Save theme preference
-    themeToggle.addEventListener('click', () => {
-      if (body.classList.contains('dark-mode')) {
-        localStorage.setItem('theme', 'dark');
-      } else {
-        localStorage.setItem('theme', 'light');
-      }
-    });
-
-    // Save music state
-    musicToggle.addEventListener('click', () => {
-      localStorage.setItem('musicPlaying', !music.paused);
-    });
-  </script>
-</body>
-</html>
+  if (body.classList.contains('dark-mode')) {
+    themeToggle.textContent = '☀️'; // Sun icon for light mode toggle
+    localStorage.setItem('theme', 'dark');
+  } else {
+    themeToggle.textContent = '🌙'; // Moon icon for dark mode toggle
+    localStorage.setItem('theme', 'light');
+  }
+});
