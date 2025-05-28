@@ -273,6 +273,56 @@ footer {
 .whatsapp-float:hover {
     transform: scale(1.1);
 }
+/* WhatsApp Button Already Present - For reference */
+
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 1000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-float img {
+  width: 35px;
+  height: 35px;
+}
+
+/* New Music Button - Floating below WhatsApp button */
+.music-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 110px; /* 40px + 60px + 10px gap */
+  right: 40px;
+  background-color: #00bcd4; /* Music button color */
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 60px;
+  box-shadow: 2px 2px 5px #666;
+  z-index: 1000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.music-float:hover {
+  background-color: #0097a7;
+}
 
 /* === DARK MODE STYLES === */
 body.dark-mode {
