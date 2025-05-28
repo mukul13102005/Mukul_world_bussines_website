@@ -1,4 +1,4 @@
-  // Navbar Toggle for Mobile
+// Navbar Toggle for Mobile
 function toggleHeader() {
     let navMenu = document.getElementById("nav-menu");
     if (navMenu.style.display === "flex") {
@@ -7,6 +7,7 @@ function toggleHeader() {
         navMenu.style.display = "flex";
     }
 }
+
 // 🌙 Toggle Dark/Light Theme
 function toggleTheme() {
     document.body.classList.toggle('dark-mode');
@@ -38,7 +39,6 @@ document.addEventListener("click", function (event) {
     let navMenu = document.getElementById("nav-menu");
     let menuIcon = document.querySelector(".menu-icon");
 
-    // Agar click nav menu ya menu icon par nahi hua toh band kar do
     if (!navMenu.contains(event.target) && !menuIcon.contains(event.target)) {
         navMenu.style.display = "none";
     }
@@ -75,7 +75,7 @@ function typeHeader() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    typingHeader.innerHTML = ""; // Clear text first
+    typingHeader.innerHTML = "";
     typeHeader();
 });
 
@@ -93,7 +93,7 @@ function typeHero() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    typingHero.innerHTML = ""; // Clear text first
+    typingHero.innerHTML = "";
     typeHero();
 });
 
