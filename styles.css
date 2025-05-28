@@ -13,6 +13,7 @@
 body {
     background: #f5f5f5;
     color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Header */
@@ -28,6 +29,7 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Navigation */
@@ -40,7 +42,7 @@ nav a {
     text-decoration: none;
     color: white;
     font-weight: 600;
-    transition: 0.3s;
+    transition: color 0.3s;
 }
 
 nav a:hover {
@@ -53,7 +55,7 @@ nav a:hover {
     padding: 100px 20px;
     background: linear-gradient(to right, #000428, #004e92);
     color: white;
-    height: vh;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,7 +70,8 @@ nav a:hover {
     padding: 12px 20px;
     font-weight: bold;
     border-radius: 8px;
-    transition: 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -96,6 +99,7 @@ nav a:hover {
     width: 80%;
     max-width: 500px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* Pricing Table */
@@ -114,6 +118,7 @@ nav a:hover {
 .pricing-table th, .pricing-table td {
     padding: 10px;
     border: 1px solid #ddd;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .pricing-table th {
@@ -141,29 +146,22 @@ nav a:hover {
     width: 80%;
     max-width: 500px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
 }
+
 /* Other Services Section */
 #other-services {
-    text-align: center; /* Section ka content center align */
+    text-align: center;
     padding: 50px 20px;
 }
 
 #other-services .section-heading {
-    text-align: center; /* Heading ko center karega */
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
 /* Service Icons */
-.service-icons {
-    display: flex;
-    justify-content: center; /* Icons ko center me lana */
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 15px;
-}
-/* Services Section Icons */
 .service-icons {
     display: flex;
     justify-content: center;
@@ -181,7 +179,8 @@ nav a:hover {
     padding: 10px 15px;
     border-radius: 8px;
     border: 1px solid #ddd;
-    transition: all 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    color: #333;
 }
 
 .service-icons a img {
@@ -205,6 +204,7 @@ nav a:hover {
     text-align: center;
     padding: 50px 20px;
 }
+
 /* Contact Section Icons */
 .contact-icons {
     display: flex;
@@ -217,6 +217,7 @@ nav a:hover {
     width: 40px;
     height: 40px;
     transition: transform 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .contact-link img:hover {
@@ -229,6 +230,7 @@ footer {
     color: white;
     text-align: center;
     padding: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Responsive Navbar */
@@ -251,8 +253,10 @@ footer {
 
     .menu-icon {
         display: block;
+        cursor: pointer;
     }
 }
+
 /* Floating WhatsApp Order Button */
 .whatsapp-float {
     position: fixed;
@@ -278,6 +282,7 @@ footer {
 .whatsapp-float:hover {
     transform: scale(1.1);
 }
+
 /* === DARK MODE STYLES === */
 body.dark-mode {
     background-color: #121212;
@@ -291,16 +296,61 @@ body.dark-mode footer {
     color: #f1f1f1;
 }
 
+body.dark-mode nav a {
+    color: #f1f1f1;
+}
+
+body.dark-mode nav a:hover {
+    color: #00bcd4;
+}
+
+body.dark-mode .feature,
+body.dark-mode .step {
+    background-color: #2a2a2a;
+    color: #f1f1f1;
+    box-shadow: none;
+}
+
+body.dark-mode .pricing-table th {
+    background-color: #000;
+    color: #00bcd4;
+}
+
+body.dark-mode .pricing-table td {
+    border-color: #333;
+}
+
+body.dark-mode .service-icons a {
+    background-color: #2a2a2a;
+    border-color: #444;
+    color: #f1f1f1;
+}
+
+body.dark-mode .service-icons a:hover {
+    background-color: #3a3a3a;
+}
+
 /* === TOGGLE BUTTONS === */
 #music-toggle, #theme-toggle {
     background: transparent;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     cursor: pointer;
     margin-left: 10px;
+    color: #000;
+    transition: color 0.3s ease;
 }
 
 body.dark-mode #music-toggle,
 body.dark-mode #theme-toggle {
     color: #fff;
+}
+
+/* Add focus and hover effect on toggle buttons */
+#music-toggle:hover, #theme-toggle:hover,
+#music-toggle:focus, #theme-toggle:focus {
+    outline: none;
+    color: #00bcd4;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
 }
