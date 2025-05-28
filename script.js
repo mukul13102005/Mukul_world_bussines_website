@@ -7,6 +7,31 @@ function toggleHeader() {
         navMenu.style.display = "flex";
     }
 }
+// 🌙 Toggle Dark/Light Theme
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+
+    const themeBtn = document.getElementById("theme-toggle");
+    if (document.body.classList.contains("dark-mode")) {
+        themeBtn.textContent = "☀️";
+    } else {
+        themeBtn.textContent = "🌙";
+    }
+}
+
+// 🎵 Toggle Music Play/Pause
+function toggleMusic() {
+    const music = document.getElementById("background-music");
+    const musicBtn = document.getElementById("music-toggle");
+
+    if (music.paused) {
+        music.play();
+        musicBtn.textContent = "🔈";
+    } else {
+        music.pause();
+        musicBtn.textContent = "🔊";
+    }
+}
 
 // Close menu when clicking outside or on a link
 document.addEventListener("click", function (event) {
