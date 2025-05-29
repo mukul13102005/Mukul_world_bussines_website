@@ -301,8 +301,8 @@ footer {
 /* New Music Button - Floating below WhatsApp button */
 .music-float {
   position: fixed;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   bottom: 110px; /* 40px + 60px + 10px gap */
   right: 40px;
   background-color: #00bcd4; /* Music button color */
