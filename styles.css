@@ -120,6 +120,17 @@ nav a:hover {
     background: #000;
     color: white;
 }
+.blinking-arrow {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 10px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
 
 /* How It Works */
 #how-it-works {
