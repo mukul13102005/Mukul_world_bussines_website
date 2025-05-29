@@ -421,6 +421,26 @@ body.dark-mode #theme-toggle {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+/* Testimonial container ko horizontal banane ke liye */
+#testimonials > div.testimonial-scroll-wrapper {
+    overflow-x: auto;       /* horizontal scroll enable */
+    padding-bottom: 10px;   /* thoda gap bottom me */
+}
+
+#testimonials > div.testimonial-scroll-wrapper > div.testimonial-scroll {
+    display: flex;          /* horizontal flex layout */
+    gap: 20px;              /* cards ke beech gap */
+}
+
+/* Testimonial cards ko fixed width dena */
+.testimonial-card {
+    flex: 0 0 300px;        /* fixed width cards */
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+}
 
 .testimonial-scroll-wrapper {
   overflow-x: auto;
