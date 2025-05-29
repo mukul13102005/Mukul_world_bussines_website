@@ -415,10 +415,11 @@ body.dark-mode #theme-toggle {
   -webkit-overflow-scrolling: touch;
 }
 
-.testimonial-scroll {
-  display: inline-flex;
-  gap: 16px;
-  padding-left: 16px;
+.scroll-hint {
+  font-size: 1rem;
+  color: #007bff;
+  margin-bottom: 10px;
+  animation: blink 1s infinite;
 }
 
 .testimonial-card {
